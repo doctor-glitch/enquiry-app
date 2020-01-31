@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>Enquiry Form </h1>
+  <form [formGroup]='enquiryForm' (ngSubmit)=save()>
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" class="form-control" placeholder="Enter First Name" formControlName='fname'>
+      <div *ngIf="hasError('fname')" style="color: red;">
+        <p *ngIf="get('fname').errors.required" style="color: red;">First Name cannot be empty</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" class="form-control" placeholder="Enter Last Name" formControlName='lname'>
+      <div *ngIf="hasError('lname')" style="color: red;">
+        <p *ngIf="get('lname').errors.required" style="color: red;">Last Name cannot be empty</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>E-mail</label>
+      <input type="e-mail" class="form-control" placeholder="Enter E-mail" formControlName='email'>
+      <div *ngIf="hasError('email')" style="color: red;">
+        <p *ngIf="get('email').errors.required" style="color: red;">E-mail cannot be empty</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Contact</label>
+      <input type="text" class="form-control" placeholder="Enter Contact" formControlName='contact'>
+      <div *ngIf="hasError('contact')" style="color: red;">
+        <p *ngIf="get('contact').errors.required" style="color: red;">Contact cannot be empty</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Comment</label>
+      <input type="textarea" class="form-control" placeholder="Enter Comment" formControlName='comment'>
+      <div *ngIf="hasError('comment')" style="color: red;">
+        <p *ngIf="get('comment').errors.required" style="color: red;">comment cannot be empty</p>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]='!enquiryForm.valid'>Submit</button>
+  </form>
+</div>
+
